@@ -7,10 +7,10 @@ Team Members:
 - Rohan Patel
 -----
 Dataset:
-https://www.kaggle.com/datasets/asaniczka/mammals-image-classification-dataset-45-animals
+- https://www.kaggle.com/datasets/asaniczka/mammals-image-classification-dataset-45-animals
 -----
 Proposal:
-Use dataset of 13751 animal images to train a model to classify animals (45 potential answers)
+- Use dataset of 13751 animal images to train a model to classify animals (45 potential answers)
 -----
 Architecture:
 - MongoDB to store image data
