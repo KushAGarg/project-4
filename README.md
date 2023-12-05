@@ -7,12 +7,12 @@ Team Members:
 - Rohan Patel
 -----
 Dataset:
-- https://www.kaggle.com/datasets/asaniczka/mammals-image-classification-dataset-45-animals
+- https://www.kaggle.com/datasets/muhammadbinimran/housing-price-prediction-data
 -----
 Proposal:
-- Use dataset of 13751 animal images to train a model to classify animals (45 potential answers)
+- Use housing features to estimate price.
 -----
 Architecture:
-- MongoDB to store image data
-- Neural network used to train and predict animal
-- Possible webpage with animal guessing app
+- MongoDB to store data
+- Neural network used to train and predict price
+- Possible front-end where users enter values and predicted housing price is returned
