@@ -16,3 +16,6 @@ Architecture:
 - MongoDB to store data
 - Neural network used to train and predict price
 - Possible front-end where users enter values and predicted housing price is returned
+-----
+Resources:
+- Used the following HTML Template: https://www.w3docs.com/tools/editor/5795
