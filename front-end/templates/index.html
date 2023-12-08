@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Educational registration form</title>
+    <title>Home Value Prediction</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <style>
@@ -17,7 +17,7 @@
       color: #eee;
       }
       body {
-      background: url("Images/suburbia.jpg") no-repeat center;
+      background: url("{{ url_for('static', filename='Images/suburbia.jpg') }}") no-repeat center;
       background-size: cover;
       }
       h1, h2 {
@@ -132,7 +132,44 @@
         <h1>Estimated Home Value</h1>
         <h3>***Estimation Output Here***</h3>
       </div>
-      <form action="/">
+
+      <form method="POST" action="/">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i> 
+          <h2>Enter Home Features</h2>
+        </div>
+        <div class="info">
+          <input class="sqft" type="text" name="square_feet" placeholder="Square Feet">
+          <select name="bedrooms">
+            <option value="Bedrooms" selected>Bedrooms</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3 Bedrooms</option>
+            <option value="4">4 Bedrooms</option>
+            <option value="5">5 Bedrooms</option>
+            <option value="6">6 Bedrooms</option>
+          </select>
+          <select name="bathrooms">
+            <option value="Bathrooms" selected>Bathrooms</option>
+            <option value="1">1 Bathrooms</option>
+            <option value="2">2 Bathrooms</option>
+            <option value="3">3 Bathrooms</option>
+            <option value="4">4 Bathrooms</option>
+            <option value="5">5 Bathrooms</option>
+            <option value="6">6 Bathrooms</option>
+          </select>
+          <select name="neighborhood">
+            <option value="Neighborhood" selected>Neighborhood</option>
+            <option value="Rural">Rural</option>
+            <option value="Suburban">Suburban</option>
+            <option value="Urban">Urban</option>
+          </select>
+          <input class="year" type="text" name="year_built" placeholder="Year Built">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- <form action="/">
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
           <h2>Enter Home Features</h2>
@@ -166,11 +203,9 @@
           </select>
           <input class="year" type="text" name="name" placeholder="Year Built">
         </div>
-        <!-- <div class="checkbox">
-          <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
-        </div> -->
         <button type="submit" href="/">Submit</button>
-      </form>
+      </form> -->
+
     </div>
   </body>
 </html>
