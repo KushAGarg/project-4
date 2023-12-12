@@ -1,175 +1,213 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Home Value Prediction</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <style>
-      html, body {
+<head>
+<title>Home Value Prediction</title>
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"/>
+<style>
+    html,
+    body {
       min-height: 100%;
-      }
-      body, div, form, input, select, p { 
+    }
+
+    body,
+    div,
+    form,
+    input,
+    select,
+    p {
       padding: 0;
       margin: 0;
       outline: none;
       font-family: Roboto, Arial, sans-serif;
       font-size: 16px;
       color: #eee;
-      }
-      body {
+    }
+
+    body {
       background: url("{{ url_for('static', filename='Images/suburbia.jpg') }}") no-repeat center;
       background-size: cover;
-      }
-      h1, h2 {
+    }
+
+    h1,
+    h2 {
       text-transform: uppercase;
       font-weight: 400;
-      }
-      h2 {
+    }
+
+    h2 {
       margin: 0 0 0 8px;
-      }
-      .main-block {
+    }
+
+    .main-block {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100%;
       padding: 25px;
-      background: rgba(0, 0, 0, 0.5); 
-      }
-      .left-part, form {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .left-part,
+    form {
       padding: 25px;
-      }
-      .left-part {
+    }
+
+    .left-part {
       text-align: center;
       background: rgba(0, 0, 0, 0.7);
       margin-right: 40px;
       margin-left: 400px;
-      }
-      .home-value-estimate {
+    }
+
+    .home-value-estimate {
       font-size: 72px;
-      }
-      form {
-      background: rgba(0, 0, 0, 0.7); 
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.7);
       margin-left: 40px;
       margin-right: 400px;
-      }
-      .title {
+    }
+
+    .title {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
-      }
-      .info {
+    }
+
+    .info {
       display: flex;
       flex-direction: column;
-      }
-      input, select {
+    }
+
+    input,
+    select {
       padding: 5px;
       margin-bottom: 30px;
       background: transparent;
       border: none;
       border-bottom: 1px solid #eee;
-      }
-      input::placeholder {
+    }
+
+    input::placeholder {
       color: #eee;
-      }
-      option:focus {
+    }
+
+    option:focus {
       border: none;
-      }
-      option {
-      background: black; 
+    }
+
+    option {
+      background: black;
       border: none;
-      }
-      .checkbox input {
+    }
+
+    .checkbox input {
       margin: 0 10px 0 0;
       vertical-align: middle;
-      }
-      .checkbox a {
+    }
+
+    .checkbox a {
       color: #26a9e0;
-      }
-      .checkbox a:hover {
+    }
+
+    .checkbox a:hover {
       color: #85d6de;
-      }
-      .btn-item, button {
+    }
+
+    .btn-item,
+    button {
       padding: 10px 5px;
       margin-top: 20px;
-      border-radius: 5px; 
+      border-radius: 5px;
       border: none;
-      background: #26a9e0; 
+      background: #26a9e0;
       text-decoration: none;
       font-size: 15px;
       font-weight: 400;
       color: #fff;
-      }
-      .btn-item {
+    }
+
+    .btn-item {
       display: inline-block;
       margin: 20px 5px 0;
-      }
-      button {
+    }
+
+    button {
       width: 100%;
-      }
-      button:hover, .btn-item:hover {
+    }
+
+    button:hover,
+    .btn-item:hover {
       background: #85d6de;
+    }
+
+    @media (min-width: 568px) {
+
+      html,
+      body {
+        height: 100%;
       }
-      @media (min-width: 568px) {
-      html, body {
-      height: 100%;
-      }
+
       .main-block {
-      flex-direction: row;
-      height: calc(100% - 50px);
+        flex-direction: row;
+        height: calc(100% - 50px);
       }
-      .left-part, form {
-      flex: 1;
-      height: auto;
-      }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="main-block">
-      <div class="left-part">
-        <i class="home-value-estimate"></i>
-        <h1>Estimated Home Value</h1>
-        <h3>***Estimation Output Here***</h3>
-      </div>
 
-      <form method="POST" action="/">
-        <div class="title">
-          <i class="fas fa-pencil-alt"></i> 
-          <h2>Enter Home Features</h2>
-        </div>
-        <div class="info">
-          <input class="sqft" type="text" name="square_feet" placeholder="Square Feet">
-          <select name="bedrooms">
-            <option value="Bedrooms" selected>Bedrooms</option>
-            <option value="1">1 Bedroom</option>
-            <option value="2">2 Bedrooms</option>
-            <option value="3">3 Bedrooms</option>
-            <option value="4">4 Bedrooms</option>
-            <option value="5">5 Bedrooms</option>
-            <option value="6">6 Bedrooms</option>
-          </select>
-          <select name="bathrooms">
-            <option value="Bathrooms" selected>Bathrooms</option>
-            <option value="1">1 Bathrooms</option>
-            <option value="2">2 Bathrooms</option>
-            <option value="3">3 Bathrooms</option>
-            <option value="4">4 Bathrooms</option>
-            <option value="5">5 Bathrooms</option>
-            <option value="6">6 Bathrooms</option>
-          </select>
-          <select name="neighborhood">
-            <option value="Neighborhood" selected>Neighborhood</option>
-            <option value="Rural">Rural</option>
-            <option value="Suburban">Suburban</option>
-            <option value="Urban">Urban</option>
-          </select>
-          <input class="year" type="text" name="year_built" placeholder="Year Built">
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-
-      <!-- <form action="/">
+      .left-part,
+      form {
+        flex: 1;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="main-block">
+<div class="left-part">
+<i class="home-value-estimate"></i>
+<h1>Estimated Home Value</h1>
+<h3>132598.66</h3>
+<h4>Repeat parameters, price pulled from Mongo</h4>
+</div>
+<form action="/" method="POST">
+<div class="title">
+<i class="fas fa-pencil-alt"></i>
+<h2>Enter Home Features</h2>
+</div>
+<div class="info">
+<input class="sqft" name="square_feet" placeholder="Square Feet" type="text"/>
+<select name="bedrooms">
+<option selected="" value="Bedrooms">Bedrooms</option>
+<option value="1">1 Bedroom</option>
+<option value="2">2 Bedrooms</option>
+<option value="3">3 Bedrooms</option>
+<option value="4">4 Bedrooms</option>
+<option value="5">5 Bedrooms</option>
+<option value="6">6 Bedrooms</option>
+</select>
+<select name="bathrooms">
+<option selected="" value="Bathrooms">Bathrooms</option>
+<option value="1">1 Bathrooms</option>
+<option value="2">2 Bathrooms</option>
+<option value="3">3 Bathrooms</option>
+<option value="4">4 Bathrooms</option>
+<option value="5">5 Bathrooms</option>
+<option value="6">6 Bathrooms</option>
+</select>
+<select name="neighborhood">
+<option selected="" value="Neighborhood">Neighborhood</option>
+<option value="Rural">Rural</option>
+<option value="Suburban">Suburban</option>
+<option value="Urban">Urban</option>
+</select>
+<input class="year" name="year_built" placeholder="Year Built" type="text"/>
+</div>
+<button type="submit">Submit</button>
+</form>
+<!-- <form action="/">
         <div class="title">
           <i class="fas fa-pencil-alt"></i> 
           <h2>Enter Home Features</h2>
@@ -205,7 +243,6 @@
         </div>
         <button type="submit" href="/">Submit</button>
       </form> -->
-
-    </div>
-  </body>
+</div>
+</body>
 </html>
