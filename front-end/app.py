@@ -81,7 +81,6 @@ def index():
         elem = None
         for x in found_data:
             elem = x
-        print("NEXT")
         if elem != None:
             assignH4String("Price pulled from Mongo")
             price_output = elem['Price']
