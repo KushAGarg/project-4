@@ -93,7 +93,7 @@ def index():
         
         assignH3String(str(price_output))
         
-        output = fake_houses.insert_one(data)
+        fake_houses.insert_one(data)
     return render_template('index.html')
 
 if __name__ == '__main__':
