@@ -86,7 +86,7 @@ def index():
             elem = x
         if elem != None:
             assignH4String("Price pulled from Mongo")
-            price_output = round(float(elem['Price'], 2))
+            price_output = round(float(elem['Price']), 2)
         else:
             vals = list(data.values())
             inp = transform_input(vals[0], vals[1], vals[2], vals[3], vals[4])
