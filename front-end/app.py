@@ -78,12 +78,15 @@ def index():
         
         price_output = None
         found_data = fake_houses.find(data)
+        houses_found_data = houses.find(data)
         elem = None
         for x in found_data:
             elem = x
+        for x in houses_found_data:
+            elem = x
         if elem != None:
             assignH4String("Price pulled from Mongo")
-            price_output = elem['Price']
+            price_output = round(float(elem['Price'], 2))
         else:
             vals = list(data.values())
             inp = transform_input(vals[0], vals[1], vals[2], vals[3], vals[4])
