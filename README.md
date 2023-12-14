@@ -19,3 +19,8 @@ Architecture:
 -----
 Resources:
 - Used the following HTML Template: https://www.w3docs.com/tools/editor/5795
+-----
+How the repository is sorted:
+- front-end/ contains all the code related to the front end side of our code, including our flask app, html file, and related images
+- neural-network/ contains all our code related to the creation of our neural network used in the flask app
+- housing-visuals/ contains all our code related to making exploratory visuals for our presentation
