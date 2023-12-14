@@ -24,3 +24,6 @@ How the repository is sorted:
 - front-end/ contains all the code related to the front end side of our code, including our flask app, html file, and related images
 - neural-network/ contains all our code related to the creation of our neural network used in the flask app
 - housing-visuals/ contains all our code related to making exploratory visuals for our presentation
+-----
+PowerPoint:
+- https://docs.google.com/presentation/d/1FF4pxTLMV2yLyYDeZlq3kyvPn-NEV4OO7V2cRmcjTxQ/edit?usp=sharing
