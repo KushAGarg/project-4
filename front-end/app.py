@@ -22,7 +22,7 @@ if "FakeHouses" in db.list_collection_names():
     db['FakeHouses'].drop()
 fake_houses = db['FakeHouses']
 
-model = tf.keras.models.load_model(Path("./neural-network/models/optimized_model_5.h5"))
+model = tf.keras.models.load_model(Path("./neural-network/models/optimized_model_4.h5"))
 print(model.summary())
 
 def transform_input(sqft, bed, bath, loc, year):
